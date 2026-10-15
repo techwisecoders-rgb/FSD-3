@@ -1,0 +1,223 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-bg-light: #F8FAFC;
+    --color-surface-white: #FFFFFF;
+    --color-blue-primary: #2563EB;
+    --color-blue-deep: #1E40AF;
+    --color-blue-dark: #0F172A;
+    --color-blue-light: #EFF6FF;
+    --color-blue-border: #BFDBFE;
+    --color-blue-accent: #38BDF8;
+
+    --color-navy: #0F172A;
+    --color-slate-600: #475569;
+    --color-slate-400: #94A3B8;
+
+    --color-green-emerald: #10B981;
+    --color-amber-warning: #F59E0B;
+    --color-rose-danger: #EF4444;
+  }
+
+  body {
+    background-color: var(--color-bg-light);
+    color: var(--color-navy);
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* Custom modern scrollbar in blue palette */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #93C5FD;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2563EB;
+}
+
+/* Primary WorkForce Button: Royal Blue with subtle depth */
+.btn-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  background-color: #2563EB;
+  border: 1px solid #1D4ED8;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background-color: #1D4ED8;
+  border-color: #1E40AF;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+}
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Secondary Button: White with clean crisp blue border */
+.btn-secondary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  color: #1E40AF;
+  background-color: #FFFFFF;
+  border: 1.5px solid #BFDBFE;
+  border-radius: 0.75rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+}
+.btn-secondary:hover {
+  border-color: #2563EB;
+  background-color: #EFF6FF;
+  color: #1D4ED8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.12);
+}
+
+/* Outline danger button */
+.btn-danger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  color: #DC2626;
+  background-color: #FEF2F2;
+  border: 1px solid #FECACA;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.btn-danger:hover {
+  background-color: #FEE2E2;
+  border-color: #EF4444;
+}
+
+/* Success status button */
+.btn-success {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  color: #065F46;
+  background-color: #ECFDF5;
+  border: 1px solid #A7F3D0;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.btn-success:hover {
+  background-color: #D1FAE5;
+  border-color: #10B981;
+}
+
+/* Glass Card & Surface */
+.card-base {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 1rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+.card-base:hover {
+  border-color: #93C5FD;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.08);
+}
+
+/* Status indicator dot */
+.status-dot-active {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #10B981;
+}
+.status-dot-active::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border-radius: 50%;
+  background-color: #10B981;
+  opacity: 0.7;
+  animation: pulse-ring 2s infinite ease-in-out;
+}
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 0.9; }
+  50% { transform: scale(1.6); opacity: 0; }
+  100% { transform: scale(0.8); opacity: 0; }
+}
+
+/* Leaflet map styles reset & styling */
+.leaflet-container {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  border-radius: 1rem;
+  z-index: 10;
+}
+.leaflet-popup-content-wrapper {
+  border-radius: 0.75rem !important;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15) !important;
+  padding: 0 !important;
+  overflow: hidden;
+  border: 1px solid #BFDBFE;
+}
+.leaflet-popup-content {
+  margin: 0 !important;
+  line-height: 1.4 !important;
+}
+
+/* Typography animations */
+@keyframes reactbits-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+.animate-split-word {
+  display: inline-block;
+  opacity: 0;
+  animation: reactbits-fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
